@@ -35,14 +35,26 @@ export default function LandingPage() {
       {/* Hero Section */}
       <section className="relative pt-40 pb-32 px-6 lg:px-12 w-full max-w-7xl mx-auto flex flex-col items-center">
         
-        {/* Massive Typography Background */}
-        <motion.h1 
-          style={{ opacity: heroOpacity, scale: heroScale }}
-          className="text-[15vw] leading-[0.8] font-black tracking-tighter text-center uppercase absolute top-32 z-0 text-white/[0.03] select-none flex flex-col items-center w-full"
-        >
-          <span>VIRTUAL</span>
-          <span>TRY-ON</span>
-        </motion.h1>
+        {/* Animated Tech Background */}
+        <div className="absolute inset-0 w-full h-full z-0 overflow-hidden perspective-[1000px] pointer-events-none">
+          {/* Animated Orbs */}
+          <div className="absolute top-[10%] left-[20%] w-[50vh] h-[50vh] bg-emerald/10 blur-[120px] rounded-full animate-orb-float mix-blend-screen" />
+          <div className="absolute top-[30%] right-[15%] w-[60vh] h-[60vh] bg-aqua/10 blur-[150px] rounded-full animate-orb-float-reverse mix-blend-screen" />
+          
+          {/* Subtle Grid Floor */}
+          <div 
+            className="absolute inset-0 opacity-30 origin-bottom"
+            style={{ 
+              backgroundImage: "url(\"data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHdpZHRoPSI2MCIgaGVpZ2h0PSI2MCI+CjxwYXRoIGQ9Ik0wIDBoNjB2NjBIMHoiIGZpbGw9Im5vbmUiLz4KPHBhdGggZD0iTTAgNjBoNjBNNjAgMHY2MCIgc3Ryb2tlPSJyZ2JhKDI1NSwyNTUsMjU1LDAuMDUpIiBzdHJva2Utd2lkdGg9IjEiLz4KPC9zdmc+\")",
+              maskImage: "linear-gradient(to bottom, transparent, black 40%, transparent 100%)",
+              WebkitMaskImage: "linear-gradient(to bottom, transparent, black 40%, transparent 100%)",
+              transform: "rotateX(60deg) scale(2)"
+            }}
+          />
+          
+          {/* Scanline Effect */}
+          <div className="absolute inset-0 w-full h-[200px] bg-gradient-to-b from-transparent via-emerald/5 to-transparent animate-scanline pointer-events-none" />
+        </div>
 
         <div className="relative z-10 flex flex-col items-center mt-12 text-center w-full">
           <motion.div
@@ -59,7 +71,7 @@ export default function LandingPage() {
             initial={{ opacity: 0, y: 30 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ delay: 0.2, duration: 0.7, type: "spring" }}
-            className="text-5xl md:text-7xl lg:text-8xl font-black tracking-tighter mb-8 max-w-5xl leading-[1.1] text-white"
+            className="font-display text-5xl md:text-7xl lg:text-8xl font-black tracking-tighter mb-8 max-w-5xl leading-[1.05] text-white"
           >
             Seu Provador <br className="hidden md:block" />
             <span className="text-gradient-emerald-aqua">Definitivo.</span>
@@ -197,7 +209,7 @@ export default function LandingPage() {
       {/* How it Works Section - Disconnected Timeline */}
       <section className="relative py-32 px-6 w-full max-w-7xl mx-auto border-t border-white/5">
          <div className="mb-20">
-            <h3 className="text-3xl md:text-5xl font-bold tracking-tighter mb-4">A Mágica em <br/><span className="text-emerald">3 Cliques.</span></h3>
+            <h3 className="font-display text-3xl md:text-5xl font-bold tracking-tighter mb-4">A Mágica em <br/><span className="text-emerald">3 Cliques.</span></h3>
             <p className="text-foreground-muted text-lg max-w-xl">A complexidade fica no servidor. Para você, é apenas uma extensão que transforma qualquer loja no seu provador pessoal.</p>
          </div>
 
@@ -257,7 +269,7 @@ export default function LandingPage() {
          <div className="absolute -left-32 top-1/2 w-[600px] h-[600px] bg-aqua/10 blur-[150px] rounded-full pointer-events-none" />
          
          <div className="text-center mb-20 relative z-10">
-            <h3 className="text-3xl md:text-5xl font-black tracking-tight mb-6">Tecnologia sem <br/> <span className="text-glow-aqua text-aqua">Fricção.</span></h3>
+            <h3 className="font-display text-3xl md:text-5xl font-black tracking-tight mb-6">Tecnologia sem <br/> <span className="text-glow-aqua text-aqua">Fricção.</span></h3>
          </div>
 
          <div className="grid grid-cols-1 lg:grid-cols-2 gap-8 relative z-10">
@@ -313,7 +325,7 @@ export default function LandingPage() {
          <div className="absolute bottom-0 left-1/2 -translate-x-1/2 w-[800px] h-[300px] bg-emerald/10 blur-[150px] pointer-events-none" />
          
          <div className="max-w-4xl mx-auto px-6 flex flex-col items-center text-center relative z-10 mb-24">
-            <h2 className="text-5xl md:text-7xl font-black tracking-tighter mb-8 leading-tight">
+            <h2 className="font-display text-5xl md:text-7xl font-black tracking-tighter mb-8 leading-tight">
                O fim das <br/><span className="text-gradient-emerald-aqua italic pr-2">devoluções.</span>
             </h2>
             <p className="text-white/50 mb-12 max-w-xl text-lg">Pare de adivinhar se a roupa vai servir. Instale o Juntamos e mude para sempre a forma como você compra moda online.</p>

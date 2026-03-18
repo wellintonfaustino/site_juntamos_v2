@@ -1,9 +1,14 @@
 import type { Metadata } from "next";
-import { Outfit } from "next/font/google";
+import { Outfit, Syne } from "next/font/google";
 import "./globals.css";
 
 const outfit = Outfit({
   variable: "--font-outfit",
+  subsets: ["latin"],
+});
+
+const syne = Syne({
+  variable: "--font-syne",
   subsets: ["latin"],
 });
 
@@ -20,7 +25,7 @@ export default function RootLayout({
   return (
     <html lang="pt-BR" className="dark scroll-smooth">
       <body
-        className={`${outfit.variable} antialiased font-sans bg-background text-foreground min-h-[100dvh] selection:bg-emerald/30 selection:text-emerald`}
+        className={`${outfit.variable} ${syne.variable} antialiased font-sans bg-background text-foreground min-h-[100dvh] selection:bg-emerald/30 selection:text-emerald`}
       >
         {children}
       </body>
