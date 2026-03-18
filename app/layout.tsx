@@ -13,8 +13,8 @@ const syne = Syne({
 });
 
 export const metadata: Metadata = {
-  title: "Juntamos - Seu Provador Virtual",
-  description: "Prove roupas virtualmente em qualquer e-commerce com Inteligência Artificial. Experimente o High-Tech Neon do Juntamos.",
+  title: "Juntamos | O Seu Provador Virtual para Qualquer Loja Online",
+  description: "Cansado de devolver roupas compradas na internet? Instale a extensão Juntamos e prove qualquer peça virtualmente no seu próprio corpo antes de comprar.",
 };
 
 export default function RootLayout({
