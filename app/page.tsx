@@ -5,6 +5,7 @@ import { ArrowRight, Sparkles, ShieldCheck, Zap, Layers, Chrome, Maximize, Monit
 import React, { useRef } from "react";
 import Image from "next/image";
 import { GridBeams } from "./components/GridBeams";
+import { TShirtAnimation } from "./components/TShirtAnimation";
 
 export default function LandingPage() {
   const containerRef = useRef<HTMLDivElement>(null);
@@ -55,6 +56,9 @@ export default function LandingPage() {
            <div className="absolute top-[20%] left-1/2 -translate-x-1/2 w-[800px] h-[600px] bg-emerald/10 blur-[150px] rounded-full" />
         </div>
 
+        {/* Thematic Animated Object */}
+        <TShirtAnimation />
+
         <motion.div 
           style={{ y: heroY, opacity: opacityFade }}
           className="relative z-10 w-full max-w-[1400px] flex flex-col items-start mt-8"
@@ -66,7 +70,7 @@ export default function LandingPage() {
           
           <h1 className="font-display font-black text-[15vw] sm:text-[13vw] lg:text-[11vw] leading-[0.8] tracking-tighter uppercase text-white m-0">
             Compre Com<br/>
-            <span className="text-transparent bg-clip-text bg-gradient-to-r from-emerald to-aqua">Certeza.</span>
+            <span className="text-transparent bg-clip-text bg-gradient-to-r from-emerald to-aqua">Certeza!</span>
           </h1>
 
           <div className="mt-16 flex flex-col md:flex-row items-start lg:items-center justify-between w-full border-t border-white/10 pt-10 gap-10">
