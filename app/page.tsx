@@ -25,8 +25,8 @@ export default function LandingPage() {
       <div className="fixed inset-0 bg-noise pointer-events-none z-0 mix-blend-screen opacity-70" />
       
       {/* Minimal Header */}
-      <nav className="fixed top-0 w-full z-50 px-6 py-6 flex items-center justify-between pointer-events-none mix-blend-difference">
-         <div className="flex items-center gap-4 relative z-10 pointer-events-auto">
+      <nav className="fixed top-0 w-full z-50 px-6 py-6 flex items-center justify-between pointer-events-none">
+         <div className="flex items-center gap-4 relative z-10 pointer-events-auto bg-black/40 backdrop-blur-lg border border-white/10 px-5 py-3 shadow-xl">
             <Image src="/logo.svg" alt="Juntamos Logo" width={140} height={40} className="h-6 md:h-8 w-auto" priority />
             <span className="text-white font-display font-black text-xl md:text-2xl tracking-widest uppercase hidden sm:block">JUNTAMOS</span>
          </div>
@@ -38,7 +38,7 @@ export default function LandingPage() {
                pointerEvents: isFooterInView ? "none" : "auto" 
             }}
             transition={{ duration: 0.3 }}
-            className="pointer-events-auto group relative px-6 py-3 bg-transparent text-emerald font-black uppercase tracking-[0.15em] text-xs sm:text-sm overflow-hidden flex items-center gap-3 cursor-pointer border border-emerald hover:bg-emerald hover:text-black transition-colors"
+            className="pointer-events-auto group relative px-6 py-3 bg-black/40 backdrop-blur-lg text-emerald font-black uppercase tracking-[0.15em] text-xs sm:text-sm overflow-hidden flex items-center gap-3 cursor-pointer border border-emerald hover:bg-emerald hover:text-black transition-colors shadow-xl"
          >
             <Chrome className="w-4 h-4" />
             <span className="hidden md:inline">Baixar Extensão Grátis</span>
