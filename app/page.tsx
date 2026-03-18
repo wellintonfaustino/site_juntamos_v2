@@ -4,6 +4,7 @@ import { motion, useScroll, useTransform, useInView } from "framer-motion";
 import { ArrowRight, Sparkles, ShieldCheck, Zap, Layers, Chrome, Maximize, MonitorSmartphone } from "lucide-react";
 import React, { useRef } from "react";
 import Image from "next/image";
+import { GridBeams } from "./components/GridBeams";
 
 export default function LandingPage() {
   const containerRef = useRef<HTMLDivElement>(null);
@@ -20,9 +21,6 @@ export default function LandingPage() {
 
   return (
     <main ref={containerRef} className="relative w-full bg-background overflow-x-hidden min-h-screen font-sans selection:bg-emerald/30 selection:text-emerald">
-      
-      {/* Brutalist Noise Texture */}
-      <div className="fixed inset-0 bg-noise pointer-events-none z-0 mix-blend-screen opacity-70" />
       
       {/* Minimal Header */}
       <nav className="fixed top-0 w-full z-50 px-6 py-6 flex items-center justify-between pointer-events-none">
@@ -46,12 +44,20 @@ export default function LandingPage() {
          </motion.button>
       </nav>
 
-      {/* Hero Section - Asymmetric Brutalist Approach */}
-      <section className="relative pt-40 pb-20 w-full max-w-[1400px] mx-auto flex flex-col items-start px-6">
+      {/* Hero Section - Futuristic Grid Approach */}
+      <section className="relative pt-40 pb-20 w-full mx-auto flex flex-col items-center px-6 overflow-hidden min-h-[90vh]">
         
+        {/* Animated Illuminated Grid Background */}
+        <div className="absolute inset-0 pointer-events-none z-0 [mask-image:radial-gradient(ellipse_100%_100%_at_50%_30%,black_30%,transparent_100%)]">
+           <div className="absolute inset-0 bg-[linear-gradient(to_right,rgba(255,255,255,0.06)_1px,transparent_1px),linear-gradient(to_bottom,rgba(255,255,255,0.06)_1px,transparent_1px)] bg-[size:60px_60px] opacity-80" />
+           <GridBeams />
+           {/* Ambient central glow */}
+           <div className="absolute top-[20%] left-1/2 -translate-x-1/2 w-[800px] h-[600px] bg-emerald/10 blur-[150px] rounded-full" />
+        </div>
+
         <motion.div 
           style={{ y: heroY, opacity: opacityFade }}
-          className="relative z-10 w-full flex flex-col items-start mt-8"
+          className="relative z-10 w-full max-w-[1400px] flex flex-col items-start mt-8"
         >
           <div className="flex border border-white/20 bg-white/5 text-white/50 text-[10px] font-mono px-3 py-1.5 uppercase tracking-widest mb-12 w-fit items-center gap-3">
              <span className="w-1.5 h-1.5 bg-emerald animate-pulse rounded-full" />
