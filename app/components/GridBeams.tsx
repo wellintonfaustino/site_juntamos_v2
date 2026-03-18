@@ -41,7 +41,8 @@ export function GridBeams() {
         this.vx = dir[0];
         this.vy = dir[1];
         
-        this.length = Math.floor(Math.random() * 40) + 20; // Length of the light beam
+        // Longer tail / rastros 
+        this.length = Math.floor(Math.random() * 80) + 40;
         this.history = [];
       }
 
@@ -93,17 +94,18 @@ export function GridBeams() {
         gradient.addColorStop(1, "rgba(0, 255, 102, 0)");
         
         ctx.strokeStyle = gradient;
-        ctx.lineWidth = 2;
+        ctx.lineWidth = 8; // Thicker rastro
         ctx.lineCap = "round";
-        ctx.shadowBlur = 10;
+        ctx.shadowBlur = 15;
         ctx.shadowColor = "#00FF66";
         ctx.stroke();
         
         // Draw the very bright "head" of the beam
         ctx.beginPath();
-        ctx.arc(this.x, this.y, 2, 0, Math.PI * 2);
+        // Larger bolinha for the head
+        ctx.arc(this.x, this.y, 8, 0, Math.PI * 2);
         ctx.fillStyle = "#ffffff";
-        ctx.shadowBlur = 15;
+        ctx.shadowBlur = 20;
         ctx.shadowColor = "#ffffff";
         ctx.fill();
         
@@ -118,6 +120,7 @@ export function GridBeams() {
 
     const render = () => {
       ctx.clearRect(0, 0, width, height);
+      
       particles.forEach(p => {
         p.update();
         p.draw(ctx);
@@ -145,7 +148,7 @@ export function GridBeams() {
   return (
     <canvas
       ref={canvasRef}
-      className="absolute inset-0 w-full h-full pointer-events-none z-10"
+      className="absolute inset-0 w-full h-full pointer-events-none z-10 blur-[8px]"
     />
   );
 }
