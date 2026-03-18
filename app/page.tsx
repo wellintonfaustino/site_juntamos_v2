@@ -1,11 +1,15 @@
 "use client";
 
-import { motion, useScroll, useTransform } from "framer-motion";
+import { motion, useScroll, useTransform, useInView } from "framer-motion";
 import { ArrowRight, Sparkles, ShieldCheck, Zap, Layers, Chrome, Maximize, MonitorSmartphone } from "lucide-react";
 import React, { useRef } from "react";
+import Image from "next/image";
 
 export default function LandingPage() {
   const containerRef = useRef<HTMLDivElement>(null);
+  const footerRef = useRef<HTMLElement>(null);
+  const isFooterInView = useInView(footerRef, { amount: "some" });
+
   const { scrollYProgress } = useScroll({
     target: containerRef,
     offset: ["start start", "end end"]
@@ -22,9 +26,24 @@ export default function LandingPage() {
       
       {/* Minimal Header */}
       <nav className="fixed top-0 w-full z-50 px-6 py-6 flex items-center justify-between pointer-events-none mix-blend-difference">
-         <div className="text-2xl tracking-tighter flex items-center gap-2 relative z-10 pointer-events-auto">
-            <span className="text-white font-display font-black uppercase">Juntamos.</span>
+         <div className="flex items-center gap-4 relative z-10 pointer-events-auto">
+            <Image src="/logo.svg" alt="Juntamos Logo" width={140} height={40} className="h-6 md:h-8 w-auto" priority />
+            <span className="text-white font-display font-black text-xl md:text-2xl tracking-widest uppercase hidden sm:block">JUNTAMOS</span>
          </div>
+         <motion.button 
+            initial={{ opacity: 1, y: 0 }}
+            animate={{ 
+               opacity: isFooterInView ? 0 : 1, 
+               y: isFooterInView ? -20 : 0,
+               pointerEvents: isFooterInView ? "none" : "auto" 
+            }}
+            transition={{ duration: 0.3 }}
+            className="pointer-events-auto group relative px-6 py-3 bg-transparent text-emerald font-black uppercase tracking-[0.15em] text-xs sm:text-sm overflow-hidden flex items-center gap-3 cursor-pointer border border-emerald hover:bg-emerald hover:text-black transition-colors"
+         >
+            <Chrome className="w-4 h-4" />
+            <span className="hidden md:inline">Baixar Extensão Grátis</span>
+            <span className="inline md:hidden">Baixar</span>
+         </motion.button>
       </nav>
 
       {/* Hero Section - Asymmetric Brutalist Approach */}
@@ -123,7 +142,7 @@ export default function LandingPage() {
                     <Sparkles className="w-5 h-5 text-emerald" />
                   </div>
                   <div>
-                    <h4 className="text-[14px] font-bold text-white leading-none mb-1.5 uppercase tracking-widest">Juntamos</h4>
+                    <Image src="/logo.svg" alt="Juntamos" width={100} height={24} className="h-4 w-auto mb-1.5" />
                     <div className="flex items-center gap-2">
                       <span className="w-2 h-2 bg-emerald" />
                       <p className="text-[9px] text-emerald font-mono uppercase tracking-[0.2em]">Pronto para Uso</p>
@@ -200,10 +219,10 @@ export default function LandingPage() {
       </section>
 
       {/* Extreme Footer */}
-      <footer className="w-full bg-emerald text-black py-40 px-6 border-t border-white/20">
+      <footer ref={footerRef} className="w-full bg-emerald text-black py-40 px-6 border-t border-white/20">
          <div className="max-w-[1400px] mx-auto flex flex-col items-center justify-center text-center">
             <h2 className="font-display text-[14vw] md:text-[11vw] font-black uppercase tracking-tighter leading-[0.8] mb-16 mix-blend-multiply">
-               Descubra o<br/>Novo "Vestir".
+               Descubra o<br/>Novo &quot;Vestir&quot;.
             </h2>
             <button className="group px-16 py-8 bg-black text-white hover:text-emerald font-black uppercase tracking-[0.3em] text-xl transition-all shadow-[10px_10px_0px_rgba(0,0,0,0.5)] active:shadow-[0px_0px_0px_rgba(0,0,0,0.5)] active:translate-x-[10px] active:translate-y-[10px] flex items-center gap-6">
                <Chrome className="w-8 h-8" />
