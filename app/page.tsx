@@ -225,8 +225,8 @@ export default function LandingPage() {
       </section>
 
       {/* Extreme Footer */}
-      <footer ref={footerRef} className="w-full bg-emerald text-black py-40 px-6 border-t border-white/20">
-         <div className="max-w-[1400px] mx-auto flex flex-col items-center justify-center text-center">
+      <footer ref={footerRef} className="w-full bg-emerald text-black pt-40 border-t border-white/20 flex flex-col">
+         <div className="max-w-[1400px] mx-auto px-6 w-full flex flex-col items-center justify-center text-center pb-40">
             <h2 className="font-display text-[14vw] md:text-[11vw] font-black uppercase tracking-tighter leading-[0.8] mb-16 mix-blend-multiply">
                Descubra o<br/>Novo &quot;Vestir&quot;.
             </h2>
@@ -234,6 +234,16 @@ export default function LandingPage() {
                <Chrome className="w-8 h-8" />
                Adicionar ao Navegador
             </button>
+         </div>
+
+         <div className="w-full border-t border-black/20 px-6 py-6 font-mono text-xs font-bold uppercase tracking-widest flex flex-col md:flex-row justify-between items-center gap-6">
+            <p className="opacity-60">&copy; {new Date().getFullYear()} Juntamos</p>
+            <div className="flex flex-wrap justify-center gap-8">
+               <a href="#" className="hover:opacity-50 transition-opacity">Política de Privacidade</a>
+               <a href="#" className="hover:opacity-50 transition-opacity">LinkedIn</a>
+               <a href="#" className="hover:opacity-50 transition-opacity">Instagram</a>
+               <a href="mailto:contato@juntamos.com" className="hover:opacity-50 transition-opacity">Email</a>
+            </div>
          </div>
       </footer>
 
