@@ -1,0 +1,48 @@
+@import "tailwindcss";
+
+@theme {
+  --font-sans: var(--font-outfit), sans-serif;
+
+  /* Color Palette - Vantablack & Neon */
+  --color-background: #050505;
+  --color-surface: #0a0a0a;
+  --color-surface-elevated: #111111;
+  --color-foreground: #ffffff;
+  --color-foreground-muted: #a1a1aa;
+  
+  --color-emerald: #00FF66;
+  --color-emerald-glow: rgba(0, 255, 102, 0.3);
+  --color-aqua: #00E5FF;
+  --color-aqua-glow: rgba(0, 229, 255, 0.3);
+}
+
+@layer base {
+  body {
+    background-color: var(--color-background);
+    color: var(--color-foreground);
+    overflow-x: hidden;
+  }
+}
+
+/* Custom utilities for the Apple-Futurism / Acid Cyberpunk vibe */
+@layer utilities {
+  .glass-panel {
+    @apply bg-surface/60 backdrop-blur-xl border border-white/5;
+  }
+  
+  .glass-panel-emerald {
+    @apply bg-surface/60 backdrop-blur-xl border border-emerald/30 shadow-[0_0_40px_-10px_var(--color-emerald-glow)];
+  }
+
+  .text-glow-emerald {
+    text-shadow: 0 0 25px var(--color-emerald-glow);
+  }
+
+  .text-glow-aqua {
+    text-shadow: 0 0 25px var(--color-aqua-glow);
+  }
+  
+  .text-gradient-emerald-aqua {
+    @apply bg-clip-text text-transparent bg-gradient-to-r from-emerald to-aqua;
+  }
+}
