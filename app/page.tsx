@@ -6,6 +6,7 @@ import React, { useRef } from "react";
 import Image from "next/image";
 import { GridBeams } from "./components/GridBeams";
 import { TShirtAnimation } from "./components/TShirtAnimation";
+import { StructuredData } from "./components/StructuredData";
 
 export default function LandingPage() {
   const containerRef = useRef<HTMLDivElement>(null);
@@ -22,6 +23,7 @@ export default function LandingPage() {
 
   return (
     <main ref={containerRef} className="relative w-full bg-background overflow-x-hidden min-h-screen font-sans selection:bg-emerald/30 selection:text-emerald">
+      <StructuredData />
       
       {/* Minimal Header */}
       <nav className="fixed top-0 w-full z-50 px-6 py-6 flex items-center justify-between pointer-events-none">
@@ -69,8 +71,8 @@ export default function LandingPage() {
           </div>
           
           <h1 className="font-display font-black text-[15vw] sm:text-[13vw] lg:text-[11vw] leading-[0.8] tracking-tighter uppercase text-white m-0">
-            Compre Com<br/>
-            <span className="text-transparent bg-clip-text bg-gradient-to-r from-emerald to-aqua">Certeza!</span>
+            Provador Virtual<br/>
+            <span className="text-transparent bg-clip-text bg-gradient-to-r from-emerald to-aqua">Juntamos!</span>
           </h1>
 
           <div className="mt-16 flex flex-col md:flex-row items-start lg:items-center justify-between w-full border-t border-white/10 pt-10 gap-10">
@@ -224,6 +226,25 @@ export default function LandingPage() {
                <ShieldCheck className="w-12 h-12 text-white/30 mb-12 group-hover:text-emerald transition-colors" />
                <h4 className="font-display text-4xl lg:text-5xl font-black uppercase tracking-tighter mb-6">Sua Privacidade<br/>Protegida.</h4>
                <p className="text-white/50 font-mono text-xs max-w-sm leading-relaxed uppercase">O seu rosto e o seu corpo pertencem só a você. Quando a aba do site é fechada, toda a memória de simulação também é descartada com absoluta segurança. Confiança primeiro.</p>
+            </div>
+         </div>
+      </section>
+      {/* FAQ Section - GEO Optimization */}
+      <section className="w-full border-t border-white/10 bg-black/50 py-32">
+         <div className="max-w-[1400px] mx-auto px-6">
+            <h2 className="font-display text-5xl md:text-7xl font-black uppercase tracking-tighter mb-20 text-center">Tire Suas <span className="text-emerald">Dúvidas.</span></h2>
+            <div className="grid grid-cols-1 md:grid-cols-2 gap-12 max-w-4xl mx-auto">
+               {[
+                 { q: "O Juntamos funciona em quais lojas?", a: "Nossa extensão foi projetada para ser universal. Ela funciona em praticamente qualquer e-commerce de moda, desde grandes varejistas até lojas locais." },
+                 { q: "Minhas fotos ficam salvas?", a: "Não. Sua privacidade é nossa prioridade. O processamento da imagem acontece em tempo real e os dados são descartados assim que você fecha a sessão." },
+                 { q: "Preciso pagar para usar a extensão?", a: "Não! O Juntamos é totalmente gratuito para os usuários. Queremos revolucionar a forma como todos compram roupas online." },
+                 { q: "O provador virtual é preciso?", a: "Sim, utilizamos IA de última geração para mapear as proporções da roupa ao seu corpo, garantindo um caimento visual muito próximo da realidade." }
+               ].map((item, i) => (
+                 <div key={i} className="border-l border-emerald/30 pl-8 py-4">
+                    <h5 className="text-emerald font-bold uppercase tracking-widest mb-4 text-sm">{item.q}</h5>
+                    <p className="text-white/40 text-xs font-mono leading-relaxed">{item.a}</p>
+                 </div>
+               ))}
             </div>
          </div>
       </section>
